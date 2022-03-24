@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ConfigLogoModel } from './components/models/config-logo.model';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'epsilon-ng-base';
+
+  configLogo: ConfigLogoModel;
+
+  constructor() {
+    this.configLogo = {
+      url: './assets/logo.png',
+      alt: 'epsilon',
+      width: 100,
+    }
+  }
 }
