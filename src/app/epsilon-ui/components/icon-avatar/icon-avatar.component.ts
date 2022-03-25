@@ -1,12 +1,21 @@
-import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import {
+  Component,
+  Input,
+  OnChanges,
+  OnDestroy,
+  OnInit,
+  SimpleChanges,
+} from '@angular/core';
+import { Subscription } from 'rxjs';
 import { ConfigAvatar } from '../../models/config-avatar.model';
+import { UserInfoService } from '../../services/user-info.service';
 
 @Component({
   selector: 'ep-icon-avatar',
   templateUrl: './icon-avatar.component.html',
   styleUrls: ['./icon-avatar.component.scss'],
 })
-export class IconAvatarComponent implements OnChanges {
+export class IconAvatarComponent implements OnInit, OnChanges, OnDestroy {
   @Input()
   fullName: string = '';
 
@@ -15,7 +24,20 @@ export class IconAvatarComponent implements OnChanges {
 
   styleAvatarCss: any;
 
-  constructor() {}
+  private userInfoServiceSubscription: Subscription | undefined;
+
+  constructor(private userInfoService: UserInfoService) {}
+
+  ngOnInit(): void {
+    this.userInfoServiceSubscription =
+      this.userInfoService.currentUser.subscribe((currentUser) => {
+        this.fullName = currentUser.fullName;
+      });
+  }
+
+  ngOnDestroy(): void {
+    this.userInfoServiceSubscription?.unsubscribe();
+  }
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['fullName'] && changes['fullName'].currentValue) {
@@ -27,6 +49,7 @@ export class IconAvatarComponent implements OnChanges {
       this.styleAvatarCss = {
         height: `${this.config.height / 16}rem`,
         width: `${this.config.width / 16}rem`,
+        fontSize: `${(this.config.width * 0.35) / 16}rem`,
       };
     }
   }

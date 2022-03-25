@@ -1,0 +1,18 @@
+<mat-menu #appMenu="matMenu">
+  <div class="container-info" matMenuContent>
+    <div>
+      <ep-user-info></ep-user-info>
+    </div>
+    <button mat-menu-item>
+      <mat-icon>manage_accounts</mat-icon>Edit Profile</button>
+    <button mat-menu-item>
+      <mat-icon>account_box</mat-icon>View Profile</button>
+    <mat-divider></mat-divider>
+    <button mat-menu-item><mat-icon>output</mat-icon>Sign Out</button>
+    </div>
+</mat-menu>
+
+<div class="logger-user-info" mat-icon-button [matMenuTriggerFor]="appMenu">
+  <ep-icon-avatar [config]="configAvatar"></ep-icon-avatar>
+</div>
+

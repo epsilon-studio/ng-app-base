@@ -3,7 +3,7 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 import { ConfigLogoModel } from '../../models/config-logo.model';
-import { ConfigAvatar } from '../../models/config-avatar.model';
+import { UserInfoService } from '../../services/user-info.service';
 
 @Component({
   selector: 'ep-navigation',
@@ -20,17 +20,19 @@ export class NavigationComponent {
       shareReplay()
     );
 
-  configAvatar: ConfigAvatar;
-
-  constructor(private breakpointObserver: BreakpointObserver) {
+  constructor(
+    private breakpointObserver: BreakpointObserver,
+    private userInfoService: UserInfoService
+  ) {
     this.configLogo = {
       url: './assets/logo.png',
       alt: 'epsilon',
       width: 50,
     };
-    this.configAvatar = {
-      height: 48,
-      width: 48,
-    };
+    this.userInfoService.setCurrentUser({
+      username: 'user01',
+      fullName: 'Pedro Martinez',
+      role: 'Cajero',
+    });
   }
 }

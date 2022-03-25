@@ -8,9 +8,19 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
+import { MatMenuModule } from '@angular/material/menu';
 import { IconAvatarComponent } from './components/icon-avatar/icon-avatar.component';
+import { LoggedUserInfoComponent } from './components/logged-user-info/logged-user-info.component';
+import { UserInfoComponent } from './components/user-info/user-info.component';
+import { UserInfoService } from './services/user-info.service';
 
-const COMPONENTS = [LogoComponent, NavigationComponent, IconAvatarComponent];
+const COMPONENTS = [
+  LogoComponent,
+  NavigationComponent,
+  IconAvatarComponent,
+  LoggedUserInfoComponent,
+  UserInfoComponent,
+];
 
 const MATERIALMODULES = [
   MatToolbarModule,
@@ -18,11 +28,15 @@ const MATERIALMODULES = [
   MatSidenavModule,
   MatIconModule,
   MatListModule,
+  MatMenuModule,
 ];
+
+const SERVICES = [UserInfoService];
 
 @NgModule({
   declarations: [...COMPONENTS],
   imports: [CommonModule, LayoutModule, ...MATERIALMODULES],
   exports: [...COMPONENTS],
+  providers: [...SERVICES],
 })
 export class EpsilonUIModule {}
