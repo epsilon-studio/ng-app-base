@@ -5,7 +5,7 @@ import {
   OnInit,
   SimpleChanges,
 } from '@angular/core';
-import { ConfigLogoModel } from '../models/config-logo.model';
+import { ConfigLogoModel } from '../../models/config-logo.model';
 
 @Component({
   selector: 'ep-logo',

@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { LogoComponent } from './logo/logo.component';
-import { NavigationComponent } from './navigation/navigation.component';
+import { LogoComponent } from './components/logo/logo.component';
+import { NavigationComponent } from './components/navigation/navigation.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
@@ -35,4 +35,4 @@ const MATERIALMODULES = [
     ...COMPONENTS
   ]
 })
-export class ComponentModule { }
+export class EpsilonUIModule { }

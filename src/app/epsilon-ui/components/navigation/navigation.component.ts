@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
-import { ConfigLogoModel } from '../models/config-logo.model';
+import { ConfigLogoModel } from '../../models/config-logo.model';
 
 @Component({
   selector: 'ep-navigation',
