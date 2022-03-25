@@ -8,31 +8,21 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
+import { IconAvatarComponent } from './components/icon-avatar/icon-avatar.component';
 
-const COMPONENTS = [
-  LogoComponent,
-  NavigationComponent
-]
+const COMPONENTS = [LogoComponent, NavigationComponent, IconAvatarComponent];
 
 const MATERIALMODULES = [
   MatToolbarModule,
   MatButtonModule,
   MatSidenavModule,
   MatIconModule,
-  MatListModule
-]
+  MatListModule,
+];
 
 @NgModule({
-  declarations: [
-    ...COMPONENTS,
-  ],
-  imports: [
-    CommonModule,
-    LayoutModule,
-    ...MATERIALMODULES
-  ],
-  exports: [
-    ...COMPONENTS
-  ]
+  declarations: [...COMPONENTS],
+  imports: [CommonModule, LayoutModule, ...MATERIALMODULES],
+  exports: [...COMPONENTS],
 })
-export class EpsilonUIModule { }
+export class EpsilonUIModule {}

@@ -35,6 +35,7 @@ export class LogoComponent implements OnChanges {
       this.styleLogo = {
         width: `${this.config.width / 16}rem`,
         height: 'auto',
+        verticalAlign: 'middle',
       };
       console.log(this.styleLogo);
     }
