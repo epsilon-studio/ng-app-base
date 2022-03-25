@@ -5,7 +5,7 @@ import {
   OnInit,
   SimpleChanges,
 } from '@angular/core';
-import { ConfigLogoModel } from '../models/config-logo.model';
+import { ConfigLogoModel } from '../../models/config-logo.model';
 
 @Component({
   selector: 'ep-logo',
@@ -30,13 +30,12 @@ export class LogoComponent implements OnChanges {
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['config'] && changes['config'].currentValue) {
-      console.log(JSON.stringify(changes['config'].currentValue));
       this.config = changes['config'].currentValue as ConfigLogoModel;
       this.styleLogo = {
         width: `${this.config.width / 16}rem`,
         height: 'auto',
+        verticalAlign: 'middle',
       };
-      console.log(this.styleLogo);
     }
   }
 }

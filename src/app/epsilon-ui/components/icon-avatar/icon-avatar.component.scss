@@ -1,0 +1,18 @@
+.avatar {
+  position: relative;
+  border-radius: 50%;
+  display: inline-block;
+  vertical-align: middle;
+}
+.avatar--color {
+  background-color: #8392a5;
+}
+.avatar-initial {
+  position: absolute;
+  font-weight: 700;
+  text-transform: uppercase;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+}
