@@ -7,10 +7,10 @@ import { UserInfoService } from '../../services/user-info.service';
 
 @Component({
   selector: 'ep-navigation',
-  templateUrl: './navigation.component.html',
-  styleUrls: ['./navigation.component.scss'],
+  templateUrl: './main.template.html',
+  styleUrls: ['./main.template.scss'],
 })
-export class NavigationComponent {
+export class MainTemplate {
   configLogo: ConfigLogoModel;
 
   isHandset$: Observable<boolean> = this.breakpointObserver

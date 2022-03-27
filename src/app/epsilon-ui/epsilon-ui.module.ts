@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LogoComponent } from './components/logo/logo.component';
-import { NavigationComponent } from './components/navigation/navigation.component';
+import { MainTemplate } from './templates/main/main.template';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
@@ -13,14 +13,18 @@ import { IconAvatarComponent } from './components/icon-avatar/icon-avatar.compon
 import { LoggedUserInfoComponent } from './components/logged-user-info/logged-user-info.component';
 import { UserInfoComponent } from './components/user-info/user-info.component';
 import { UserInfoService } from './services/user-info.service';
+import { RouterModule } from '@angular/router';
+import { MenuComponent } from './components/menu/menu.component';
 
 const COMPONENTS = [
   LogoComponent,
-  NavigationComponent,
   IconAvatarComponent,
   LoggedUserInfoComponent,
   UserInfoComponent,
+  MenuComponent,
 ];
+
+const TEMPLATES = [MainTemplate];
 
 const MATERIALMODULES = [
   MatToolbarModule,
@@ -34,9 +38,9 @@ const MATERIALMODULES = [
 const SERVICES = [UserInfoService];
 
 @NgModule({
-  declarations: [...COMPONENTS],
-  imports: [CommonModule, LayoutModule, ...MATERIALMODULES],
-  exports: [...COMPONENTS],
+  declarations: [...COMPONENTS, ...TEMPLATES],
+  imports: [CommonModule, RouterModule, LayoutModule, ...MATERIALMODULES],
+  exports: [...COMPONENTS, ...TEMPLATES],
   providers: [...SERVICES],
 })
 export class EpsilonUIModule {}
